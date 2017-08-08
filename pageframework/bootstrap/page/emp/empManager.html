@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>empManager</title>
+    <link rel="stylesheet" href="../../vender/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Sex</th>
+                    <th>Op</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>mj</td>
+                    <td>test</td>
+                    <td>
+                        <button class="btn btn-default" onclick="empManager.editor()">editor</button>
+                        <button class="btn btn-danger">remove</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>mj</td>
+                    <td>test</td>
+                    <td>
+                        <button class="btn btn-default">editor</button>
+                        <button class="btn btn-danger">remove</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>mj</td>
+                    <td>test</td>
+                    <td>
+                        <button class="btn btn-default">editor</button>
+                        <button class="btn btn-danger">remove</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    var empManager = {
+        editor: function () {
+            window.location.href = "editor.html";
+        }
+    }
+</script>
+</body>
+</html>

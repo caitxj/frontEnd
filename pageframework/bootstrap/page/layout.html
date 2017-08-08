@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>layout</title>
+    <link rel="stylesheet" href="../vender/bootstrap/css/bootstrap.css">
+    <style>
+        #mainPage {
+            width: 100%;
+            min-height: 350px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <h4 class="navbar-brand">Emp System</h4>
+            </div>
+            <div class="navbar-right">
+                <div class="navbar-btn">
+                    <button class="btn btn-default" onclick="layout.logOut()">logOut</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="list-group">
+                <li class="list-group-item" onclick="layout.loadFramePage('emp/empManager.html')">empManager</li>
+                <li class="list-group-item">2</li>
+                <li class="list-group-item">3</li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <iframe id="mainPage" src="welcome.html" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+<script>
+    var layout = {
+        loadFramePage: function (url) {
+            document.getElementById("mainPage").src = url;
+        },
+        logOut: function () {
+            window.location.href = "login.html";
+        }
+    }
+
+</script>
+</body>
+</html>
