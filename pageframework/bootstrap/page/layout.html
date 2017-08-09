@@ -19,10 +19,21 @@
             <div class="col-md-2">
                 <h4 class="navbar-brand">Emp System</h4>
             </div>
-            <div class="navbar-right">
-                <div class="navbar-btn">
-                    <button class="btn btn-default" onclick="layout.logOut()">logOut</button>
+            <div class="pull-right">
+                <div class="dropdown">
+                    <button class="btn btn-default" data-toggle="dropdown">Setting
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
                 </div>
+                <!--<button class="btn btn-default" onclick="layout.logOut()"><span class="glyphicon glyphicon-book"></span>logOut-->
+                <!--</button>-->
             </div>
         </div>
     </div>
@@ -42,6 +53,8 @@
         </div>
     </div>
 </div>
+<script src="../vender/jquery/jquery.js"></script>
+<script src="../vender/bootstrap/js/bootstrap.js"></script>
 <script>
     var layout = {
         loadFramePage: function (url) {
