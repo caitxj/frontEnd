@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js-table</title>
+    <style>
+        .clock {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 1px solid gray;
+        }
+    </style>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse">
+    <div class="navbar-brand">
+        <span id="hour"></span>:<span id="minute"></span>:<span id="second"></span></div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <input type="text" id="name" placeholder="name" class="form-control"><input type="text" id="id"
+                                                                                        placeholder="id"
+                                                                                        class="form-control">
+            <button id="add" onclick="demo.tableCRUD.addTr()" class="btn btn-default">Add</button>
+        </div>
+        <div class="col-md-9">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>op</th>
+                </tr>
+                </thead>
+                <tbody id="tbl">
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    var demo = {
+        initClock: function () {
+            var h = document.getElementById("hour");
+            var m = document.getElementById("minute");
+            var s = document.getElementById("second");
+
+            var date = new Date();
+            h.innerHTML = date.getHours();
+            m.innerHTML = date.getMinutes();
+            s.innerHTML = date.getSeconds();
+        },
+        /**
+         * 表格CRUD操作
+         */
+        tableCRUD: {
+            addTr: function () {
+                var name = document.getElementById("name").value;
+                var id = document.getElementById("id").value;
+                var table = document.getElementById("tbl");
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.innerHTML = name;
+                var td1 = document.createElement("td");
+                td1.innerHTML = id;
+
+                var op = document.createElement("td");
+                op.innerHTML = "<button class='btn btn-default'  onclick=\"demo.tableCRUD.editorTr(this)\">editor</button><button class='btn btn-danger' onclick=\"demo.tableCRUD.removeTr(this)\">remove</button>"
+                tr.appendChild(td);
+                tr.appendChild(td1);
+                tr.appendChild(op);
+                table.appendChild(tr);
+            },
+            removeTr: function (obj) {
+                var table = document.getElementById("tbl");
+                table.removeChild(obj.parentNode.parentNode);
+            },
+            editorTr: function (obj) {
+                var tr = obj.parentNode.parentNode;
+                var tds = tr.childNodes;
+                for (var i = 0; i < tds.length; i++) {
+                    tds[i].setAttribute("data", tds[i].innerHTML);
+                    var text = tds[i].innerHTML;
+                    tds[i].innerHTML = "<input class='form-control' value='" + text + "' />";
+                    if (i == tds.length - 1) {
+                        tds[i].innerHTML = "<button class='btn btn-default'  onclick=\"demo.tableCRUD.save(this)\">save</button><button class='btn btn-default' onclick=\"demo.tableCRUD.cancel(this)\">cancel</button>";
+                    }
+                }
+            },
+            cancel: function (obj) {
+                var tds = obj.parentNode.parentNode.childNodes;
+                for (var i = 0; i < tds.length; i++) {
+                    tds[i].innerHTML = tds[i].getAttribute("data");
+                    if (i == tds.length - 1) {
+                        tds[i].innerHTML = "<button class='btn btn-default'  onclick=\"demo.tableCRUD.editorTr(this)\">editor</button><button class='btn btn-danger' onclick=\"demo.tableCRUD.removeTr(this)\">remove</button>"
+                    }
+                }
+            },
+            save: function (obj) {
+                var tr = obj.parentNode.parentNode;
+                var tds = tr.childNodes;
+                for (var i = 0; i < tds.length; i++) {
+                    tds[i].innerHTML = tds[i].childNodes[0].value;
+                    if (i == tds.length - 1) {
+                        tds[i].innerHTML = "<button class='btn btn-default'  onclick=\"demo.tableCRUD.editorTr(this)\">editor</button><button class='btn btn-danger' onclick=\"demo.tableCRUD.removeTr(this)\">remove</button>"
+                    }
+                }
+            }
+        }
+    }
+    setInterval(demo.initClock, 1000);
+</script>
+</body>
+</html>
