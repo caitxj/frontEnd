@@ -1,0 +1,11 @@
+.form-control + label {
+    color: red;
+}
+
+.selected {
+    background-color: gray;
+}
+
+table tr {
+    cursor: pointer;
+}

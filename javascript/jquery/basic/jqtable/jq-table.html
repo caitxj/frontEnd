@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>jq-table</title>
-    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap.css">
+    <link rel="stylesheet" href="jq-table.css">
 </head>
 <body>
 
@@ -20,11 +21,13 @@
                     user Add
                 </div>
                 <div class="panel-body">
-                    <form action="">
-                        <div class="form-group"><label for="">name</label><input type="text" class="form-control"></div>
-                        <div class="form-group"><label for="">pwd</label><input type="text" class="form-control"></div>
-                        <button class="btn btn-default">save</button>
-                        <button class="btn btn-default">cancel</button>
+                    <form action="" id="addUserForm">
+                        <div class="form-group"><label for="">name</label><input id="name" type="text"
+                                                                                 class="form-control"></div>
+                        <div class="form-group"><label for="">pwd</label><input id="pwd" type="password"
+                                                                                class="form-control"></div>
+                        <button type="button" id="save" class="btn btn-default">save</button>
+                        <button type="button" id="cancel" class="btn btn-default">cancel</button>
                     </form>
                 </div>
             </div>
@@ -35,11 +38,14 @@
                                                     id="keyWord">
                 <button class="btn btn-primary" id="query">Search</button>
             </div>
-            <table class="table table-bordered table-responsive">
+            <table id="userTable" class="table table-bordered table-responsive">
                 <tr>
+                    <th>
+                        <input type="checkbox" data-type="all">全选<input type="checkbox" data-type="rev"> 反选
+                        <button class="btn btn-danger" id="delete">delete</button>
+                    </th>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Email</th>
                     <th>Op</th>
                 </tr>
 
@@ -49,11 +55,11 @@
 </div>
 
 
-<script src="../jquery.js"></script>
+<script src="../../jquery.js"></script>
 <script src="jqTable.js"></script>
 <script>
     $(function () {
-        jqTable.init();
+        jqTable.init("#userTable");
     })
 </script>
 </body>
