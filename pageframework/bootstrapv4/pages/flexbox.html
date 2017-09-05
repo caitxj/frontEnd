@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flexbox- 盒模型测试</title>
+
+    <style>
+        .parent {
+
+            display: flex;
+
+        }
+
+        .parent-direction {
+            display: flex;
+            flex-direction: row-reverse;
+        / / 行反转
+        }
+
+        .parent-direction1 {
+            display: flex;
+            flex-direction: column;
+        / / 行反转
+        }
+
+        .parent-align {
+            display: flex;
+            align-items: center;
+        }
+
+        .parent-wrap {
+            display: flex;
+            flex-wrap: wrap;
+        / / 元素过多, 换行操作
+        }
+
+        .child1 {
+            height: 200px;
+            width: 100px;
+        }
+
+        .child-grp {
+            flex-grow: 1;
+        }
+
+        .child2 {
+            width: 600px;
+        }
+
+        .child3 {
+            width: 300px;
+            min-height: 300px;
+        }
+
+        /*.child {*/
+        /*flex-grow: 1;*/
+        /*border: 1px solid gray;*/
+        /*}*/
+
+        /*.child:nth-last-child(1) {*/
+        /*flex-grow: 3;*/
+        /*}*/
+    </style>
+</head>
+<body>
+
+<div class="parent">
+    <div class="child1">1</div>
+    <div class="child1">2</div>
+    <div class="child1">3</div>
+</div>
+<hr>
+<div class="parent-direction">
+    <div class="child-grp">1</div>
+    <div class="child-grp">2</div>
+    <div class="child-grp">3</div>
+</div>
+<hr>
+<div class="parent-direction1">
+    <div class="child-grp">1</div>
+    <div class="child-grp">2</div>
+    <div class="child-grp">3</div>
+</div>
+<hr>
+<div class="parent-wrap">
+    <div class="child2">1</div>
+    <div class="child2">2</div>
+    <div class="child2">3</div>
+    <div class="child2">4</div>
+</div>
+
+<h1>align item</h1>
+<div class="parent-align">
+    <div class="child3">
+        asdfffffffffffffffffffffffffffffffffffffffffffffffffffffff
+    </div>
+    <div class="child3">
+        This is a just a taste of the properties you can use to customize the Flexbox grid. As I
+        mentioned previously, I just wanted to give you a quick introduction to using Flexbox and
+        some of the terminology that is needed. Let's take what we've learned and build on that by
+        building a Flexbox grid in Bootstrap.
+    </div>
+    <div class="child3">
+        Whether your are using Flexbox or not, the grid is based on Bootstrap's regular row and
+        column classes. If you are familiar with the Bootstrap grid, this will work exactly as you
+        expect it to. Before you start any Bootstrap project, you need to decide if you want to use a
+        Flexbox or regular grid. Unfortunately, you can't use both at the same time in a Bootstrap
+        project. Since the focus of this chapter is on Flexbox, we'll be using the appropriate grid
+        configuration. By default Bootstrap is set up to use the regular grid. Therefore, we are going
+        to need to edit the source files to activate the Flexbox grid. Let's start by downloading the
+        source files again from h t t p : / / v 4 - a l p h a . g e t b o o t s t r a p . c o m / .
+        Once you've downloaded the ZIP file, expand it and rename it so you don't get confused.
+        Call it something like Flexbox Bootstrap . Next we'll need to edit a file and recompile the
+        source files to apply the changes.
+    </div>
+</div>
+</body>
+</html>
